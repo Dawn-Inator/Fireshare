@@ -6,9 +6,9 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./dev_root/fireshare_data:/data
-      - ./dev_root/fireshare_processed:/processed
-      - ./dev_root/fireshare_videos:/videos
+      - ./docker/fileshare/data:/data
+      - ./docker/fileshare/processed:/processed
+      - ./docker/fileshare/videos:/videos
     environment:
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=admin
@@ -20,3 +20,22 @@ services:
       - DOMAIN=
       - PUID=1000
       - PGID=1000
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    container_name: fireshare_browser
+    ports:
+      - "5000:80"
+    volumes:
+      - ./docker/fileshare/videos:/srv
+      - ./docker/filebrowser/config.json:/etc/config.json
+      - ./docker/filebrowser/database.db:/etc/database.db
+  nginx-proxy-manager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./docker/proxy/data:/data
+      - ./docker/proxy/letsencrypt:/etc/letsencrypt
