@@ -9,6 +9,7 @@
 ```
       NginxProxyManager ----(分配域名，https加密)----
                                                    |
+                                                   |
   用户 ---> chrome --(观看视频)--> Fireshare <------|
               |                       |            |
               |                   (读取文件)        |
