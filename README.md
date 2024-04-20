@@ -17,6 +17,10 @@
 ```
 
 ## 部署步骤：
+- 下载项目架构
+```
+git clone -b docker https://github.com/Dawn-Inator/Fireshare.git
+```
 
 - ubuntu系统
 ```
