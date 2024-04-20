@@ -1,3 +1,7 @@
+# Click <a href="https://github.com/Dawn-Inator/Fireshare/tree/docker">here</a> to set up your project in one step!!
+-- by Dawn Inator
+---
+
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
